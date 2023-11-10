@@ -5,9 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(/images/One\ Step\ from\ the\ Jungle.jpeg);
+  color: white;
+  
+  
+ 
+ 
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+button{
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: rgba(220, 20, 60, 0.671);
+  border-radius: 8px;
+  font-size: 16px;
+}
+.navbar navbar-expand-lg navbar-light bg-light{
+  color: rgb(84, 211, 0);
+}
+

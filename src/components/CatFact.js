@@ -1,32 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function CatFact() {
-  const [fact, setFact] = useState('');
+  const [data, setData] = useState([]);
 
-  const fetchCatFact = async () => {
-    try {
-      const response = await fetch('https://meowfacts.herokuapp.com/');
-      if (response.ok) {
-        const data = await response.json();
-        const catFact = data.data;
-        console.log(catFact); // You can handle the catFact data as needed (e.g., updating state in a React component)
-      } else {
-        console.error('Failed to fetch cat fact');
-      }
-    } catch (error) {
-      console.error('Error fetching cat fact:', error);
-    }
+  const fetchCatFact = () => {
+    fetch('https://meowfacts.herokuapp.com/')
+      .then((response) => response.json())
+      .then((apiData) => {
+        // Assuming the API response is an array of cat facts, update the state
+        setData(apiData);
+        
+      })
+      .catch(error => {
+        console.error('Error fetching cat facts:', error);
+      });
   };
-  
-  // Call the fetchCatFact function to fetch a cat fact
-  fetchCatFact();
-  
 
   return (
     <div className="content">
-      <h2>Cat Fact</h2>
-      <button onClick={fetchCatFact}>Get New Fact</button>
-      {fact && <p>{fact}</p>}
+      <h2>Cat Facts</h2>
+
+      <button onClick={fetchCatFact}>Get New Facts</button>
+      
+      {Array.isArray(data) && data.length > 0 && (
+        <ul>
+          {data.map((fact, index) => (
+            <li key={index}>{fact}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
