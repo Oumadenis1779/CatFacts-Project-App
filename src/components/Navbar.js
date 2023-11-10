@@ -5,13 +5,15 @@ function Navbar() {
   return (
 
     <div>
-      
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to="/home"><span className="navbar-brand mb-0 h1">Home</span></Link>
-            <Link to="/cat-fact">CatFact</Link>
-            <Link to="/about">About</Link>
-            <Link to="/notfound">Notfound</Link>
-        
+           
+        <nav>
+          <ul>
+            <li> <Link to="/home"><span className="navbar-brand mb-0 h1">Home</span></Link></li>
+            <li><Link to="/cat-fact">CatFact</Link></li>
+            <li><Link to="/about">About</Link></li>
+           
+          </ul>
+           
         </nav>
     </div>
   )

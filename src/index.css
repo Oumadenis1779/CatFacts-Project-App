@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,10 +8,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url(/images/One\ Step\ from\ the\ Jungle.jpeg);
   color: white;
+  position: relative;
+  padding: 20px;
   
-  
- 
- 
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; 
+  left: 0;
+  background: rgba(7, 7, 7, 0.5); /* Adjust the alpha value to make it darker or lighter */
 }
 
 code {
@@ -21,11 +31,45 @@ button{
   border: none;
   padding: 10px 20px;
   text-align: center;
-  background-color: rgba(220, 20, 60, 0.671);
+  background-color: rgba(243, 12, 58, 0.671);
   border-radius: 8px;
   font-size: 16px;
 }
-.navbar navbar-expand-lg navbar-light bg-light{
-  color: rgb(84, 211, 0);
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
+nav ul li{
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+  
+    padding-right: 20px; /* Adjust the right padding as needed */
+  
+  
+}
+nav ul li a{
+  
+  text-decoration: none;
+  font-size: 25px;
+  position: relative;
+}
+nav ul li a::after{
+  content: '';
+  width: 0;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  background-color: darkred;
+  transition: 0.5s;
 
+}
+nav ul li a:hover::after{
+ width: 100%;
+}
+.content{
+  position: relative;
+}

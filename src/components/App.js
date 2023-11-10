@@ -4,7 +4,6 @@ import Header from './Header';
 import Home from './Home';
 import CatFact from './CatFact';
 import About from './About';
-import NotFound from './NotFound';
 import Navbar from './Navbar';
 
 
@@ -18,7 +17,7 @@ function App() {
           <Route path="/home" exact element={<Home/>} />
           <Route path="/cat-fact" element={<CatFact/>} />
           <Route path="/about" element={<About/>} />
-          <Route path="/notfound" element={<NotFound/>} />
+          
         </Routes>
       </div>
     </Router>
