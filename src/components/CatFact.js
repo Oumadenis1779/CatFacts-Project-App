@@ -9,11 +9,11 @@ function CatFact() {
     fetch('https://meowfacts.herokuapp.com/')
       .then((response) => response.json())
       .then((apiData) => {
-        setCatData({ data: apiData });
+        setCatData(apiData.data[0]);
       })
       .catch(error => {
         console.error('Error fetching cat facts:', error);
-        setCatData({ data: [] });
+        setCatData();
       })
       .finally(() => {
         setLoading(false);
@@ -32,8 +32,11 @@ function CatFact() {
       <button onClick={fetchCatFact} disabled={loading}>
         {loading ? 'Loading...' : 'Get New Cat Facts'}
       </button>
+<div>
+  <pre>{JSON.stringify(catData, null, 2)}</pre>
 
-      <pre>{JSON.stringify(catData, null, 2)}</pre>
+</div>
+     
     </div>
   );
 }
